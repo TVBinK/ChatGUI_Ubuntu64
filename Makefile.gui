@@ -1,0 +1,68 @@
+# Makefile cho Chat GUI Application
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c99 -g
+GTK_CFLAGS = $(shell pkg-config --cflags gtk+-3.0)
+GTK_LIBS = $(shell pkg-config --libs gtk+-3.0)
+LIBS = -lpthread
+
+# Tên file thực thi
+TARGET = chat_gui
+
+# Source files
+SOURCES = chat_gui.c
+OBJECTS = $(SOURCES:.c=.o)
+
+# Default target
+all: $(TARGET)
+
+# Biên dịch ứng dụng GUI
+$(TARGET): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $(TARGET) $(GTK_LIBS) $(LIBS)
+
+# Biên dịch từ .c thành .o
+%.o: %.c
+	$(CC) $(CFLAGS) $(GTK_CFLAGS) -c $< -o $@
+
+# Kiểm tra dependencies
+check-deps:
+	@echo "Kiểm tra dependencies..."
+	@pkg-config --exists gtk+-3.0 || (echo "GTK+3 không được cài đặt. Vui lòng cài đặt: sudo apt-get install libgtk-3-dev" && exit 1)
+	@echo "Tất cả dependencies đã sẵn sàng!"
+
+# Cài đặt dependencies (Ubuntu/Debian)
+install-deps:
+	@echo "Cài đặt dependencies..."
+	sudo apt-get update
+	sudo apt-get install -y build-essential libgtk-3-dev pkg-config
+
+# Chạy ứng dụng
+run: $(TARGET)
+	./$(TARGET)
+
+# Clean
+clean:
+	rm -f $(OBJECTS) $(TARGET)
+
+# Install (copy to /usr/local/bin)
+install: $(TARGET)
+	sudo cp $(TARGET) /usr/local/bin/
+	sudo chmod +x /usr/local/bin/$(TARGET)
+	@echo "Đã cài đặt $(TARGET) vào /usr/local/bin/"
+
+# Uninstall
+uninstall:
+	sudo rm -f /usr/local/bin/$(TARGET)
+	@echo "Đã gỡ cài đặt $(TARGET)"
+
+# Help
+help:
+	@echo "Các lệnh có sẵn:"
+	@echo "  make          - Biên dịch ứng dụng"
+	@echo "  make run      - Chạy ứng dụng"
+	@echo "  make clean    - Xóa file biên dịch"
+	@echo "  make install  - Cài đặt vào /usr/local/bin"
+	@echo "  make uninstall- Gỡ cài đặt"
+	@echo "  make check-deps- Kiểm tra dependencies"
+	@echo "  make install-deps- Cài đặt dependencies"
+
+.PHONY: all clean run install uninstall help check-deps install-deps 

@@ -1,0 +1,212 @@
+/* Style cho ứng dụng Chat Group */
+
+/* Cửa sổ chính */
+window {
+    background-color: #f5f5f5;
+    color: #333333;
+}
+
+/* Tiêu đề */
+#title-label {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 10px 0;
+}
+
+/* Entry fields */
+entry {
+    padding: 8px 12px;
+    border: 2px solid #bdc3c7;
+    border-radius: 6px;
+    background-color: white;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+entry:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Login button */
+button:first-child {
+    background-color: #3498db;
+    color: white;
+}
+
+button:first-child:hover {
+    background-color: #2980b9;
+}
+
+/* Register button */
+button:last-child {
+    background-color: #27ae60;
+    color: white;
+}
+
+button:last-child:hover {
+    background-color: #229954;
+}
+
+/* Send button */
+#send-button {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#send-button:hover {
+    background-color: #c0392b;
+}
+
+/* Text view cho chat */
+textview {
+    background-color: white;
+    border: 2px solid #bdc3c7;
+    border-radius: 6px;
+    padding: 10px;
+    font-family: "Ubuntu", "DejaVu Sans", sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+textview text {
+    background-color: white;
+    color: #2c3e50;
+}
+
+/* Scrollbar */
+scrollbar {
+    background-color: #ecf0f1;
+    border-radius: 3px;
+}
+
+scrollbar slider {
+    background-color: #bdc3c7;
+    border-radius: 3px;
+    min-width: 12px;
+    min-height: 12px;
+}
+
+scrollbar slider:hover {
+    background-color: #95a5a6;
+}
+
+/* List box cho danh sách người dùng */
+list {
+    background-color: white;
+    border: 2px solid #bdc3c7;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+list row {
+    padding: 8px 12px;
+    border-bottom: 1px solid #ecf0f1;
+    background-color: white;
+    color: #2c3e50;
+}
+
+list row:hover {
+    background-color: #ecf0f1;
+}
+
+list row:selected {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Labels */
+label {
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+/* Status bar */
+statusbar {
+    background-color: #34495e;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+/* Box containers */
+box {
+    background-color: transparent;
+}
+
+/* Login window specific */
+#login-window {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#login-window box {
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Main window specific */
+#main-window {
+    background-color: #f8f9fa;
+}
+
+/* Chat panel */
+#chat-panel {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Users panel */
+#users-panel {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Message input area */
+#input-area {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    padding: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    window {
+        font-size: 12px;
+    }
+    
+    #title-label {
+        font-size: 20px;
+    }
+    
+    button {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    entry {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+} 
